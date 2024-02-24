@@ -1,3 +1,4 @@
-import { Login } from "./Login/Login";
+import { Register } from "./Register/Register.jsx";
+import { Login } from "./Login/Login.jsx";
 
-export { Login };
+export { Register, Login };

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Commonbutton, CustomInput } from "../../components/index";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../components/global.css";
+import axios from 'axios';
 
-export const Login = () => {
+export const Register = () => {
   const [Input, setInput] = useState("");
   const [Password, setPassword] = useState("");
   const [Checked, setChecked] = useState(false);
@@ -24,12 +24,19 @@ export const Login = () => {
 
   const HandleForm = (event) => {
     event.preventDefault();
-    
+    console.log("Data being sent from client:", {
+      name: Input,
+      password: Password,
+    });
     axios
-      .post(`http://localhost:10000/Login`, { Input, password: Password })
+      .post(`http://localhost:10000/register`, {
+        name: Input,
+        password: Password,
+      })
       .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
+
 
   return (
     <div className="container d-flex align-items-center justify-content-center vh-100">
@@ -59,12 +66,12 @@ export const Login = () => {
             />
             <label className="form-check-label">Show Password</label>
           </div>
-          <p className="mt-3 myfont">
-            don't have a account? <Link to="/">register</Link>
+          <p className="mt-3 custom-small myfont">
+            Alredy have account? <Link to="/loginform">Login</Link>
           </p>
           <Commonbutton
             _function={HandleForm}
-            _content="Login"
+            _content="Register"
             _class="btn btn-primary"
           />
         </form>
