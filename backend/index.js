@@ -18,7 +18,7 @@ mongoose.connect(URL, {
 app.post("/Login", (req, res) => {
   const { Input, password } = req.body;
 
-  RegisterData.findOne({ Input }).then((data) => {
+  RegisterData.findOne({ name: Input }).then((data) => {
     if (data) {
       if (data.password === password) {
         res.json("success");
