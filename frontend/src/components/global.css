@@ -3,3 +3,11 @@
     font-size: .8rem;
     font-weight: lighter;
 }
+
+.cursor{
+    cursor: pointer;
+}
+
+.heading{
+    font-size: 1.3rem;
+}
