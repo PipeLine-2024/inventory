@@ -32,13 +32,8 @@ app.post("/Login", (req, res) => {
 });
 
 app.post("/register", async (req, res) => {
-  const { name, password } = req.body;
-  console.log("Received from client:", req.body);
-
+  const { name, password, email, phone } = req.body;
   const existingUser = await RegisterData.findOne({ name });
-  console.log("Received from client:", req.body);
-
-  console.log(existingUser);  
 
   if (existingUser) {
     res.json("already a user");
